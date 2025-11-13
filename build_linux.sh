@@ -157,6 +157,8 @@ elif [[ "${DISTRIBUTION_LIKE}" == *"debian"* ]] || [[ "${DISTRIBUTION_LIKE}" == 
     DISTRIBUTION="debian"
 elif [[ "${DISTRIBUTION_LIKE}" == *"arch"* ]] ; then
     DISTRIBUTION="arch"
+elif [[ "${DISTRIBUTION}" == "fedora" ]] || [[ "${DISTRIBUTION_LIKE}" == *"fedora"* ]] || [[ "${DISTRIBUTION_LIKE}" == *"rhel"* ]] || [[ "${DISTRIBUTION_LIKE}" == *"centos"* ]] ; then
+    DISTRIBUTION="fedora"
 fi
 
 if [ ! -f "./scripts/linux.d/${DISTRIBUTION}" ] ; then
