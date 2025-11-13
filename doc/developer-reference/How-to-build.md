@@ -252,10 +252,7 @@ How to build OrcaSlicer on Linux.
 
 #### Dependencies
 
-The build system supports multiple Linux distributions including Ubuntu/Debian and Arch Linux. All required dependencies will be installed automatically by the provided shell script where possible, however you may need to manually install some dependencies.
-
-> [!NOTE]
-> Fedora and other distributions are not currently supported, but you can try building manually by installing the required dependencies listed below.
+The build system supports multiple Linux distributions including Ubuntu/Debian, Arch Linux, and Fedora (plus related RHEL/CentOS derivatives). All required dependencies will be installed automatically by the provided shell script where possible, however you may need to manually install some dependencies.
 
 ##### Common dependencies across distributions
 
@@ -287,6 +284,7 @@ The build system supports multiple Linux distributions including Ubuntu/Debian a
 
 - **Ubuntu 22.x/23.x**: libfuse-dev, m4
 - **Arch Linux**: mesa, wayland-protocols
+- **Fedora / RHEL-like**: systemd-devel (provides libudev) plus the newest available `webkit2gtk4.x-devel` (4.1 on current Fedora releases, 4.0 on older ones)
 
 #### Linux Instructions
 
@@ -328,7 +326,7 @@ The build system supports multiple Linux distributions including Ubuntu/Debian a
 - `-r`: Skip RAM and disk checks (for low-memory systems)
 
 > [!NOTE]
-> The build script automatically detects your Linux distribution and uses the appropriate package manager (apt, pacman) to install dependencies.
+> The build script automatically detects your Linux distribution and uses the appropriate package manager (apt, pacman, dnf) to install dependencies.
 
 > [!TIP]
 > For first-time builds, use `./build_linux.sh -u` to install dependencies, then `./build_linux.sh -dsti` to build everything.
