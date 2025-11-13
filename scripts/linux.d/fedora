@@ -31,22 +31,9 @@ REQUIRED_DEV_PACKAGES=(
     systemd-devel
     texinfo
     wayland-protocols-devel
+    webkit2gtk4.1-devel
     wget
 )
-
-WEBKIT_CANDIDATES=("webkit2gtk4.1-devel" "webkit2gtk4.0-devel")
-for candidate in "${WEBKIT_CANDIDATES[@]}"; do
-    if dnf list --installed "${candidate}" >/dev/null 2>&1 || dnf list --available "${candidate}" >/dev/null 2>&1; then
-        WEBKIT_PACKAGE="${candidate}"
-        break
-    fi
-done
-
-if [[ -z "${WEBKIT_PACKAGE}" ]]; then
-    echo "Unable to determine a suitable webkit2gtk development package. Please install webkit2gtk4.1-devel (or webkit2gtk4.0-devel) manually."
-else
-    REQUIRED_DEV_PACKAGES+=("${WEBKIT_PACKAGE}")
-fi
 
 if [[ -n "$UPDATE_LIB" ]]
 then
